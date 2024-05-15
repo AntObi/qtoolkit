@@ -428,6 +428,10 @@ $${qverbatim}"""
         else:
             msg = f"process placement {resources.process_placement} is not supported for PBS"
             raise UnsupportedResourcesError(msg)
+        if resources.gpus_per_job:
+            select += f":ngpus={resources.gpus_per_job}"
+            if resources.gpu_type:
+                select += f":gpu_type={resources.gpu_type}"
 
         header_dict["select"] = select
 
@@ -458,5 +462,9 @@ $${qverbatim}"""
             "threads_per_process",
             "email_address",
             "scheduler_kwargs",
+            "memory_per_thread",
+            "threads_per_process",
+            "gpus_per_job",
+            "gpu_type",
         ]
         return supported
