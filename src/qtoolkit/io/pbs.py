@@ -98,7 +98,7 @@ class PBSIO(BaseSchedulerIO):
 #PBS -J $${array}
 $${qverbatim}"""
 
-    SUBMIT_CMD: str | None = "qsub"
+    SUBMIT_CMD: str | None = "qsub -q hx"
     CANCEL_CMD: str | None = "qdel"
 
     def parse_submit_output(self, exit_code, stdout, stderr) -> SubmissionResult:
