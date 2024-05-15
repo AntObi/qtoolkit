@@ -151,6 +151,9 @@ class QResources(QTKObject):
     gpus_per_job: int | None = None
     """Number of GPUs per job."""
 
+    gpu_type: str | None = None
+    """Type of GPU."""
+
     time_limit: int | None = None
     """Time limit for the job. In seconds"""
 
