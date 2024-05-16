@@ -98,7 +98,7 @@ class PBSIO(BaseSchedulerIO):
 #PBS -J $${array}
 $${qverbatim}"""
 
-    SUBMIT_CMD: str | None = "qsub -q hx"
+    SUBMIT_CMD: str | None = "qsub"
     CANCEL_CMD: str | None = "qdel"
 
     def parse_submit_output(self, exit_code, stdout, stderr) -> SubmissionResult:
@@ -441,7 +441,7 @@ $${qverbatim}"""
 
         if resources.scheduler_kwargs:
             header_dict.update(resources.scheduler_kwargs)
-
+        
         return header_dict
 
     @property
