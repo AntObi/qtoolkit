@@ -539,8 +539,8 @@ $${qverbatim}"""
         return v * (1024 ** power_labels[units])
 
     @staticmethod
-    def _convert_time_to_str(time: int | timedelta) -> str:
-        if isinstance(time, int):
+    def _convert_time_to_str(time: int | float | timedelta) -> str:
+        if not isinstance(time, timedelta):
             time = timedelta(seconds=time)
 
         days = time.days
